@@ -87,6 +87,7 @@ void func_id(char *operation, char *value, int line, int type)
 		{"swap", _swap},
 		{"add", _add},
 		{"nop", nop},
+		{"sub", _sub},
 		{NULL, NULL},
 	};
 
