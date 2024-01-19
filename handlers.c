@@ -90,6 +90,7 @@ void func_id(char *operation, char *value, int line, int type)
 		{"sub", _sub},
 		{"div", _div},
 		{"mul", _mul},
+		{"mod", _mod},
 		{NULL, NULL},
 	};
 
