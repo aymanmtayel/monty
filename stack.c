@@ -56,7 +56,7 @@ void top_pop(stack_t **stack, unsigned int line)
 	stack_t *curr;
 
 	if (stack == NULL || *stack == NULL)
-		_error(7, line);
+		_error2(7, line);
 	curr = *stack;
 	*stack = curr->next;
 	if (*stack != NULL)
@@ -73,7 +73,7 @@ void top_pop(stack_t **stack, unsigned int line)
 void top_print(stack_t **stack, unsigned int line)
 {
 	if (stack == NULL || *stack == NULL)
-		_error(6, line);
+		_error2(6, line);
 	printf("%d\n", (*stack)->n);
 }
 

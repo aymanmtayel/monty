@@ -9,12 +9,11 @@
 
 void _open(char *name)
 {
-	FILE *file;
-
-	file = fopen(name, "r");
+	FILE *file = fopen(name, "r");
 
 	if (name == NULL || file == NULL)
 		_error(2, name);
+
 	_read(file);
 	fclose(file);
 }
@@ -32,7 +31,9 @@ void _read(FILE *file)
 	size_t len = 0;
 
 	for (line = 1; getline(&buff, &len, file) != -1; line++)
+	{
 		type = _token(buff, line, type);
+	}
 	free(buff);
 }
 
@@ -47,18 +48,21 @@ void _read(FILE *file)
 int _token(char *buff, int line, int type)
 {
 	char *operation, *value;
-	const char *delim = "\n";
+	const char *delim = "\n ";
 
 	if (buff == NULL)
 		_error(4);
+
 	operation = strtok(buff, delim);
 	if (operation == NULL)
 		return (type);
 	value = strtok(NULL, delim);
+
 	if (strcmp(operation, "queue") == 0)
 		return (0);
 	if (strcmp(operation, "stack") == 0)
 		return (1);
+
 	func_id(operation, value, line, type);
 	return (type);
 }
@@ -80,11 +84,13 @@ void func_id(char *operation, char *value, int line, int type)
 		{"pall", pstack},
 		{"pint", top_print},
 		{"pop", top_pop},
-		{"nop", nop}
+		{"nop", nop},
+		{NULL, NULL}
 	};
 
 	if (operation[0] == '#')
 		return;
+
 	for (key = 1, counter = 0; opers[counter].operation != NULL; counter++)
 	{
 		if (strcmp(operation, opers[counter].operation) == 0)
@@ -117,7 +123,7 @@ void func_id2(op_func oper, char *opers, char *value, int line, int type)
 	{
 		if (value != NULL && value[0] == '-')
 		{
-			value += 1;
+			value = value + 1;
 			key = -1;
 		}
 		if (value == NULL)
