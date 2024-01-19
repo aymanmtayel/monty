@@ -47,6 +47,7 @@ typedef void (*op_func)(stack_t **, unsigned int);
 
 void _error(int error_n, ...);
 void _error2(int error_n, ...);
+void _error3(int error_n, ...);
 void _open(char *file);
 void _read(FILE *);
 void func_id(char *, char *, int, int);
@@ -66,6 +67,8 @@ void _mul(stack_t **stack, unsigned int line_number);
 void _mod(stack_t **stack, unsigned int line_number);
 void nop(stack_t **stack, unsigned int line);
 void _queue(stack_t **node, __attribute__((unused))unsigned int line);
+void _pchar(stack_t **stack, unsigned int line);
+
 
 
 #endif

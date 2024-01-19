@@ -79,3 +79,32 @@ void _error2(int error_n, ...)
 	free_all();
 	exit(EXIT_FAILURE);
 }
+
+/**
+ * _error3 - error function for printing strings and characters
+ * @error_n: the internal error code to match the message
+ * Return: void
+ */
+
+void _error3(int error_n, ...)
+{
+	va_list list;
+	int line;
+
+	va_start(list, error_n);
+	line = va_arg(list, int);
+
+	switch (error_n)
+	{
+		case 10:
+			fprintf(stderr, "L%d: can't pchar, stack empty\n", line);
+			break;
+		case 11:
+			fprintf(stderr, "L%d: can't pchar, value out of range\n", line);
+			break;
+		default:
+			break;
+	}
+	free_all();
+	exit(EXIT_FAILURE);
+}

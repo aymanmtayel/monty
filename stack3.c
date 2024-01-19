@@ -24,3 +24,23 @@ void _mod(stack_t **stack, unsigned int line)
 	(*stack)->prev = NULL;
 }
 
+/**
+ * _pchar - prints the char crossponding to an ASCII value
+ * at the top of the stack, followed by a new line.
+ *
+ *  @stack: pointer to the top of the stack array
+ *  @line: line number inside the file for errors handling
+ */
+
+void _pchar(stack_t **stack, unsigned int line)
+{
+	int charr;
+
+	if (stack == NULL || *stack == NULL)
+		_error3(10, line);
+
+	charr = (*stack)->n;
+	if (charr < 0 || charr > 127)
+		_error3(11, line);
+	printf("%c\n", charr);
+}
