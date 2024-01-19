@@ -35,4 +35,4 @@ push 105
 push 110
 push 103
 push 115
-pchar
+pstr

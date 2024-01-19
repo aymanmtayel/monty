@@ -68,7 +68,7 @@ void _mod(stack_t **stack, unsigned int line_number);
 void nop(stack_t **stack, unsigned int line);
 void _queue(stack_t **node, __attribute__((unused))unsigned int line);
 void _pchar(stack_t **stack, unsigned int line);
-
+void _pstr(stack_t **stack, __attribute__((unused))unsigned int line);
 
 
 #endif
