@@ -18,7 +18,7 @@ void _mod(stack_t **stack, unsigned int line)
 		_error2(9, line);
 
 	(*stack) = (*stack)->next;
-	mod = (*stack)->n / (*stack)->prev->n;
+	mod = (*stack)->n % (*stack)->prev->n;
 	(*stack)->n = mod;
 	free((*stack)->prev);
 	(*stack)->prev = NULL;
