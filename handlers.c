@@ -84,8 +84,9 @@ void func_id(char *operation, char *value, int line, int type)
 		{"pall", pstack},
 		{"pint", top_print},
 		{"pop", top_pop},
+		{"swap", _swap},
 		{"nop", nop},
-		{NULL, NULL}
+		{NULL, NULL},
 	};
 
 	if (operation[0] == '#')

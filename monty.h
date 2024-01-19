@@ -58,6 +58,7 @@ void stack_add(stack_t **node, __attribute__((unused))unsigned int line);
 void pstack(stack_t **stack, unsigned int line);
 void top_pop(stack_t **stack, unsigned int line);
 void top_print(stack_t **stack, unsigned int line);
+void _swap(stack_t **stack, unsigned int line);
 void nop(stack_t **stack, unsigned int line);
 void _queue(stack_t **node, __attribute__((unused))unsigned int line);
 

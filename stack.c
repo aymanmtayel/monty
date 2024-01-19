@@ -78,13 +78,23 @@ void top_print(stack_t **stack, unsigned int line)
 }
 
 /**
- * nop - doesn’t do anything.
- * @stack: pointer to the stack
- * @line: line number
+ * _swap - swaps the top two elements of the stack.
+ * @stack: pointer to the stack array
+ * @line: line number in the file
  */
 
-void nop(stack_t **stack, unsigned int line)
+void _swap(stack_t **stack, unsigned int line)
 {
-	(void)stack;
-	(void)line;
+	stack_t *curr;
+
+	if (stack == NULL || *stack == NULL || (*stack)->next == NULL)
+		_error2(8, line, "swap");
+	curr = (*stack)->next;
+	(*stack)->next = curr->next;
+	if (curr->next != NULL)
+		curr->next->prev = *stack;
+	curr->next = *stack;
+	(*stack)->prev = curr;
+	curr->prev = NULL;
+	*stack = curr;
 }
