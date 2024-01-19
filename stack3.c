@@ -9,18 +9,18 @@
 
 void _mod(stack_t **stack, unsigned int line)
 {
-        int mod;
+	int mod;
 
-        if (stack == NULL || *stack == NULL || (*stack)->next == NULL)
-                _error2(8, line, "mod");
+	if (stack == NULL || *stack == NULL || (*stack)->next == NULL)
+		_error2(8, line, "mod");
 
-        if ((*stack)->n == 0)
-                _error2(9, line);
+	if ((*stack)->n == 0)
+		_error2(9, line);
 
-        (*stack) = (*stack)->next;
-        mod = (*stack)->n / (*stack)->prev->n;
-        (*stack)->n = mod;
-        free((*stack)->prev);
-        (*stack)->prev = NULL;
+	(*stack) = (*stack)->next;
+	mod = (*stack)->n / (*stack)->prev->n;
+	(*stack)->n = mod;
+	free((*stack)->prev);
+	(*stack)->prev = NULL;
 }
 
