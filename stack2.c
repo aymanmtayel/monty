@@ -66,12 +66,14 @@ void _div(stack_t **stack, unsigned int line)
 	int div;
 
 	if (stack == NULL || *stack == NULL || (*stack)->next == NULL)
-		_error2(8, line, "sub");
+		_error2(8, line, "div");
+
+	if ((*stack)->n == 0)
+		_error2(9, line);
 
 	(*stack) = (*stack)->next;
 	div = (*stack)->n / (*stack)->prev->n;
 	(*stack)->n = div;
-
 	free((*stack)->prev);
 	(*stack)->prev = NULL;
 }

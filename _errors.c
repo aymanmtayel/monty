@@ -70,6 +70,9 @@ void _error2(int error_n, ...)
 			oper = va_arg(list, char *);
 			fprintf(stderr, "L%d: can't %s, stack too short\n", usline, oper);
 			break;
+		case 9:
+			usline = va_arg(list, unsigned int);
+			fprintf(stderr,"L%d: division by zero\n",usline);
 		default:
 			break;
 	}
