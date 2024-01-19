@@ -85,6 +85,7 @@ void func_id(char *operation, char *value, int line, int type)
 		{"pint", top_print},
 		{"pop", top_pop},
 		{"swap", _swap},
+		{"add", _add},
 		{"nop", nop},
 		{NULL, NULL},
 	};
