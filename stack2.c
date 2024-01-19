@@ -77,3 +77,24 @@ void _div(stack_t **stack, unsigned int line)
 	free((*stack)->prev);
 	(*stack)->prev = NULL;
 }
+
+/**
+ * _mul - Multiplies the second top element of the stack
+ * by the top element of the stack.
+ * @stack: pointer to the top of the stack array
+ * @line: line number inside the file for (errors)
+ */
+
+void _mul(stack_t **stack, unsigned int line)
+{
+	int mul;
+
+	if (stack == NULL || *stack == NULL || (*stack)->next == NULL)
+		_error2(8, line, "mul");
+
+	(*stack) = (*stack)->next;
+	mul = (*stack)->n * (*stack)->prev->n;
+	(*stack)->n = mul;
+	free((*stack)->prev);
+	(*stack)->prev = NULL;
+}
