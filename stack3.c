@@ -77,3 +77,26 @@ void _pstr(stack_t **stack, __attribute__((unused))unsigned int line)
 	printf("\n");
 }
 
+/**
+ * _rotl - rotates the stack to the top.
+ * @stack: pointer to the top of the stack array
+ * @line: line number inside the file for errors handling (unused)
+ */
+
+void _rotl(stack_t **stack, __attribute__((unused))unsigned int line)
+{
+	stack_t *curr;
+
+	if (stack == NULL || *stack == NULL || (*stack)->next == NULL)
+		return;
+
+	curr = *stack;
+	while (curr->next)
+		curr = curr->next;
+
+	curr->next = *stack;
+	(*stack)->prev = curr;
+	*stack = (*stack)->next;
+	(*stack)->prev->next = NULL;
+	(*stack)->prev = NULL;
+}

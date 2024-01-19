@@ -93,6 +93,7 @@ void func_id(char *operation, char *value, int line, int type)
 		{"mod", _mod},
 		{"pchar", _pchar},
 		{"pstr", _pstr},
+		{"rotl", _rotl},
 		{NULL, NULL},
 	};
 
