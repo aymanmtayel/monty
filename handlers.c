@@ -88,6 +88,7 @@ void func_id(char *operation, char *value, int line, int type)
 		{"add", _add},
 		{"nop", nop},
 		{"sub", _sub},
+		{"div", _div},
 		{NULL, NULL},
 	};
 
