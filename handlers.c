@@ -59,9 +59,9 @@ int _token(char *buff, int line, int type)
 	value = strtok(NULL, delim);
 
 	if (strcmp(operation, "queue") == 0)
-		return (0);
-	if (strcmp(operation, "stack") == 0)
 		return (1);
+	if (strcmp(operation, "stack") == 0)
+		return (0);
 
 	func_id(operation, value, line, type);
 	return (type);
@@ -72,7 +72,7 @@ int _token(char *buff, int line, int type)
  * @operation: operation to be executed
  * @value: element to be added
  * @line: line number
- * @type:type of storing ( 0 queue, 1 stack)
+ * @type:type of storing ( 1 queue, 0 stack)
  */
 void func_id(char *operation, char *value, int line, int type)
 {
@@ -109,7 +109,7 @@ void func_id(char *operation, char *value, int line, int type)
  * @opers: the name of the operation
  * @value: the elemnt to be added
  * @line: line number
- * @type: type of the store (0 queue, 1 for stack)
+ * @type: type of the store (1 queue, 0 for stack)
  */
 
 void func_id2(op_func oper, char *opers, char *value, int line, int type)
@@ -134,9 +134,9 @@ void func_id2(op_func oper, char *opers, char *value, int line, int type)
 				_error(5, line);
 		}
 		node = new_node(atoi(value) * key);
-		if (type == 0)
-			_queue(&node, line);
 		if (type == 1)
+			_queue(&node, line);
+		if (type == 0)
 			oper(&node, line);
 	}
 	else
