@@ -54,19 +54,20 @@ void _error2(int error_n, ...)
 	int line, usline;
 
 	va_start(list, error_n);
-	line = va_arg(list, int);
-	usline = va_arg(list, unsigned int);
-	oper = va_arg(list, char *);
 
 	switch (error_n)
 	{
 		case 6:
+			line = va_arg(list, int);
 			fprintf(stderr, "L%d: can't pint, stack empty\n", line);
 			break;
 		case 7:
+			line = va_arg(list, int);
 			fprintf(stderr, "L%d: can't pop an empty stack\n", line);
 			break;
 		case 8:
+			usline = va_arg(list, unsigned int);
+			oper = va_arg(list, char *);
 			fprintf(stderr, "L%d: can't %s, stack too short\n", usline, oper);
 			break;
 		default:
