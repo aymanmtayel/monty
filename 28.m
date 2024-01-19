@@ -35,4 +35,5 @@ push 105
 push 110
 push 103
 push 115
+rotl
 pstr

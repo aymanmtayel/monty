@@ -100,3 +100,27 @@ void _rotl(stack_t **stack, __attribute__((unused))unsigned int line)
 	(*stack)->prev->next = NULL;
 	(*stack)->prev = NULL;
 }
+
+/**
+ * _rotr - rotates the stack to the bottom.
+ * @stack: pointer to the top of the stack array
+ * @line: line number inside the file for errors handling (unused)
+ */
+
+void _rotr(stack_t **stack, __attribute__((unused))unsigned int line)
+{
+	stack_t *curr;
+
+	if (stack == NULL || *stack == NULL || (*stack)->next == NULL)
+		return;
+
+	curr = *stack;
+	while (curr->next != NULL)
+		curr = curr->next;
+
+	curr->next = *stack;
+	curr->prev->next = NULL;
+	curr->prev = NULL;
+	(*stack)->prev = curr;
+	*stack = curr;
+}

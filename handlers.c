@@ -94,6 +94,7 @@ void func_id(char *operation, char *value, int line, int type)
 		{"pchar", _pchar},
 		{"pstr", _pstr},
 		{"rotl", _rotl},
+		{"rotr", _rotr},
 		{NULL, NULL},
 	};
 
